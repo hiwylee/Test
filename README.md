@@ -30,4 +30,4 @@ https://3000-fc6623a6-8dfd-4785-99ca-09b90b5cc64a.ws-ap01.gitpod.io
 
 ## 3. 실습
 ### 1) [Phone App](PhoneApp.md)
-![강좌출처https://velopert.com/3634](https://velopert.com/3634)
+* [강좌 출처:  https://velopert.com/3634](https://velopert.com/3634)
