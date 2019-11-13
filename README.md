@@ -12,10 +12,10 @@
     yarn global add create-react-app
 
 ### 2). create-react-app 사용(프로젝트 생성)
-    create-react-app hello-react
+    yarn create react-app phone-app
 
 ### 3). 프로젝트 실행
-    cd hello-react
+    cd phone-app
     yarn start
 
 
