@@ -33,8 +33,10 @@ class PhoneInfo extends Component  {
     
     handleRemove = () => {
         const {info, onRemove, onUpdate } = this.props;
-        onUpdate(info.id, info )
+        onRemove(info.id )
     }
+
+
 
     componentDidUpdate(prevProps, prevState) {
         const {info, onUpdate} = this.props;
@@ -44,7 +46,7 @@ class PhoneInfo extends Component  {
                 phone: info.phone
             })
         }
-
+        
         if(prevState.editing && !this.state.editing) {
             onUpdate(info.id, {
                 name: this.state.name,
@@ -69,7 +71,7 @@ class PhoneInfo extends Component  {
         const {
             editing 
         } = this.state;
-        
+
         if(editing) {
             return (
                 <div style={style}>
@@ -79,6 +81,7 @@ class PhoneInfo extends Component  {
                             placeholder='이름' 
                             value={this.state.name}
                             onChange={this.handleChange}
+                            
                         />
                     </div>
                     <div> 
@@ -96,6 +99,7 @@ class PhoneInfo extends Component  {
             )
         } else {
     // 일반모드
+
             const {
                 name, phone
             } = this.props.info;            
@@ -103,8 +107,9 @@ class PhoneInfo extends Component  {
                 <div style={style}>
                     <div> <b>{name}</b></div>
                     <div>{phone}</div>
+                     <button onClick={this.handleToggleEdit }> 수정 </button>
                     <button onClick={this.handleRemove}> 삭제 </button>
-                    <button onClick={this.handleToggleEdit }> 수정 </button>
+                   
                 </div>
             )
 

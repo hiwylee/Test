@@ -23,26 +23,21 @@ class App extends Component {
         name: '이황',
         phone: '010-2223-2223'
       },
-    ]
+    ],
+    keyword: ''
   }
 
-  handleRemove = (id) => {
-
-    const { information } = this.state;
-
-    this.setState ({
-      information :  information.filter( 
-          info => { console.log(info.id) ; return info.id !== id} 
-        )
-    })
-
-  }
-    
-  handleCreate = (data) => {
+  handleCreate = (data) => {  
     const { information } = this.state;
     this.setState({
-      information : information.concat({id:this.id++, ...data})
+      information: information.concat({ id: ++this.id, ...data })
     })
+  }
+
+  handleChange = (e) => {
+      this.setState({    
+        keyword: e.target.value
+      });
   }
 
   handleUpdate = (id, data) => {
@@ -54,8 +49,25 @@ class App extends Component {
       )
     })
   } 
+
+  handleRemove = (id) => {
+    
+    const { information } = this.state;
+    this.setState({
+      information: information.filter(info => info.id !== id)
+    })
+  }
+    
   render() {
-    const { information } = this.state;  
+    const { information, keyword } = this.state; 
+
+    const filteredList = information.filter( info => info.name.indexOf(keyword) !== -1);
+    console.log('## App.render keyword= [' + (keyword && !keyword.lenght) + ']');
+    if(keyword && !keyword.lenght) {
+        console.log("keyword found");
+    }
+    console.log('## App.render.org=' + JSON.stringify(information));
+    console.log('## App.render.filtered=' + JSON.stringify(filteredList));
     return (
       <div>
         <PhoneForm
@@ -63,8 +75,13 @@ class App extends Component {
         />
 
         {/*JSON.stringify(information)*/}
+        <input name='name' 
+          placeholder='검색 할 이름을 입력하세요' 
+          onChange={this.handleChange}
+          value={keyword}
+        />
         <PhoneInfoList 
-          data={information} 
+          data={ (keyword && !keyword.lenght) ?  filteredList : information} 
           onRemove={this.handleRemove} 
           onUpdate={this.handleUpdate} 
         />
