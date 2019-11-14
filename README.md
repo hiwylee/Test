@@ -59,8 +59,9 @@ https://3000-fc6623a6-8dfd-4785-99ca-09b90b5cc64a.ws-ap01.gitpod.io
 + [Vue.js 팟캐트트](https://medium.com/vue-mastery/the-official-vue-js-news-podcast-is-live-aa4052827960)
 + [Vie.js Mastery](http://www.vuemastery.com/)
 
-### Example code
-'''html
+## 6. Hello Vue.js Example code
+
+```html
 <script src="https://unpkg.com/marked@0.3.6"></script>
 <script src="https://unpkg.com/lodash@4.16.0"></script>
 
@@ -68,4 +69,23 @@ https://3000-fc6623a6-8dfd-4785-99ca-09b90b5cc64a.ws-ap01.gitpod.io
   <textarea :value="input" @input="update"></textarea>
   <div v-html="compiledMarkdown"></div>
 </div>
-'''
+```
+
+```javascript
+new Vue({
+  el: '#editor',
+  data: {
+    input: '# hello'
+  },
+  computed: {
+    compiledMarkdown: function () {
+      return marked(this.input, { sanitize: true })
+    }
+  },
+  methods: {
+    update: _.debounce(function (e) {
+      this.input = e.target.value
+    }, 300)
+  }
+})
+```
