@@ -31,8 +31,88 @@ https://3000-fc6623a6-8dfd-4785-99ca-09b90b5cc64a.ws-ap01.gitpod.io
 ## 3. 실습
 ### 1) [Phone App](PhoneApp.md)
 * [강좌 출처:  https://velopert.com/3634](https://velopert.com/3634)
+* [ReactJS로 시작하는 멀티플랫폼 개발하기](https://www.slideshare.net/taggon/reactjs-55995670?qid=341d02b6-c915-4364-a9ad-3338a42cd7a8&v=&b=&from_search=5)
 
 # Vue js
+## 사전 준비 사항
+* Vue.js 패키지 설치
+```
+$ npm install vue
+
+$ vue --version
+@vue/cli 4.0.5
+```
+* [Vue.js CLI 설치](https://cli.vuejs.org/)
+```
+npm install -g @vue/cli
+# OR
+yarn global add @vue/cli
+
+npm install -g @vue/cli-service-global
+# or
+yarn global add @vue/cli-service-global
+```
+* Vue Project 생성
+```
+vue create vue-app
+
+vue CLI v4.0.5
+✨  Creating project in /workspace/Test/vue-app.
+⚙  Installing CLI plugins. This might take a while...
+
+yarn install v1.19.1
+info No lockfile found.
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+info fsevents@1.2.9: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.9" is an optional dependency and failed compatibility check. Excluding it from installation.
+
+
+success Saved lockfile.
+Done in 15.81s.
+🚀  Invoking generators...
+📦  Installing additional dependencies...
+
+yarn install v1.19.1
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+info fsevents@1.2.9: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.9" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 7.53s.
+⚓  Running completion hooks...
+
+📄  Generating README.md...
+
+🎉  Successfully created project vue-app.
+👉  Get started with the following commands:
+
+ $ cd vue-app
+ $ yarn serve
+
+$ yarn run v1.19.1
+warning ../package.json: No license field
+$ vue-cli-service serve
+ INFO  Starting development server...
+98% after emitting CopyPlugin
+
+ DONE  Compiled successfully in 6028ms                                                                                                                                                                   6:26:51 AM
+
+  App running at:
+  - Local:   http://localhost:8080/ 
+
+  It seems you are running Vue CLI inside a container.
+  Access the dev server via http://localhost:<your container's external mapped port>/
+
+  Note that the development build is not optimized.
+  To create a production build, run yarn build.
+
+gitpod /workspace/Test $ 
+
+```
+
 ## 1. 참고자료
 * [Vue.js 입문자를 위한 공개 세미나](https://www.slideshare.net/GihyoJoshuaJang/do-it-vuejs-88453012)
 * [Vue.JS 2.0 강좌 목록 ](https://velopert.com/vuejs-tutorials)
