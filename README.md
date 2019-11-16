@@ -112,6 +112,16 @@ $ vue-cli-service serve
 gitpod /workspace/Test $ 
 
 ```
+## * 주의사항 (gitpod 를 사용하여 개발할 경우)
+* 프로젝트 홈에서 vue.connfig.js 만들어 다음과 같이 입력
+```
+module.exports = {
+    // options...
+    devServer: {
+        disableHostCheck: true,
+    }
+}
+```
 
 ## 1. 참고자료
 * [Vue.js 입문자를 위한 공개 세미나](https://www.slideshare.net/GihyoJoshuaJang/do-it-vuejs-88453012)
