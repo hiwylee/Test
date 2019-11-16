@@ -265,10 +265,10 @@ function getAll() {
 function create(message) {
     if(message.username) message.username = 'Anonymous';
 
-    const result = Joi.valid(message, schema);
+    const result = Joi.validate(message, schema);
     if(result.error == null) {
         message.created = new Date();
-        return username.insert(message);
+        return messages.insert(message);
     }
     else {
         return Promise.reject(result.error)
@@ -307,12 +307,48 @@ app.get('/messages',(req, res) => {
         res.json(messages);
     });
 });
+
+app.post('/messages',(req, res) => {
+    console.log(req.body);
+    messages.create(req.body).then((message) => {
+        res.json(message)
+    }).catch((error) => {
+        res.status(500);
+        res.json(error);
+    });
+});
+
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log(`listening on ${port}`);
 });
 ```
 ### 9. POST to API using Postman
+* public/msg1.json
+```json
+{
+    "username": "Jeff",
+    "subject": "Movie",
+    "message": "I like movies",
+    "imageURL": "https://ucarecdn.com/85b5644f-e692-4855-9db0-8c5a83096e25/"
+}
+```
+* load json data (POST)
+``` bash
+curl -X POST -H "User-Agent: Chrome 74 on Windows 10" -H "Content-Type: application/json" \
+--data @./public/msg1.json http://localhost:8080/messages
+```
+* server log
+```bash
+listening on 8080
+{ username: 'Jeff',
+  subject: 'Movie',
+  message: 'I like movies',
+  imageURL: 'https://ucarecdn.com/85b5644f-e692-4855-9db0-8c5a83096e25/' }
+## WY create:[object Object]
+POST /messages 500 - - 19.777 ms
+
+```
 ### 10. Consume API and Display Messages With Vue
 ### 11. Add a Vue Form To Submit New Messages
 ### 12. Mongo Express Vue.js Node.js Tutorial Summary
@@ -323,3 +359,16 @@ app.listen(port, () => {
 * [Monk : MongoDB Interface](https://www.npmjs.com/package/monk)
 * {Joi : Input Validation](https://vegibit.com/node-js-express-rest-api-tutorial/)
 * [Promise:  비동기 처리](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)
+
+'''html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>TypeError: Cannot set property &#39;error&#39; of null<br> &nbsp; &nbsp;at Object.create (/workspace/Test/mevn-app/db/messages.js:26:18)<br> &nbsp; &nbsp;at app.post (/workspace/Test/mevn-app/index.js:34:14)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/workspace/Test/mevn-app/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at next (/workspace/Test/mevn-app/node_modules/express/lib/router/route.js:137:13)<br> &nbsp; &nbsp;at Route.dispatch (/workspace/Test/mevn-app/node_modules/express/lib/router/route.js:112:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/workspace/Test/mevn-app/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at /workspace/Test/mevn-app/node_modules/express/lib/router/index.js:281:22<br> &nbsp; &nbsp;at Function.process_params (/workspace/Test/mevn-app/node_modules/express/lib/router/index.js:335:12)<br> &nbsp; &nbsp;at next (/workspace/Test/mevn-app/node_modules/express/lib/router/index.js:275:10)<br> &nbsp; &nbsp;at /workspace/Test/mevn-app/node_modules/body-parser/lib/read.js:130:5</pre>
+</body>
+</html>
+```

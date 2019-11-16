@@ -24,10 +24,21 @@ app.get('/', (req, res) => {
 });
 
 app.get('/messages',(req, res) => {
-    messages.getAll().then((messages) => {    
-        res.json(messages);
+    messages.getAll().then((message) => {    
+        res.json(message);
     });
 });
+
+app.post('/messages',(req, res) => {
+    console.log(req.body);
+    messages.create(req.body).then((message) => {
+        res.json(message);
+    }).catch((error) => {
+        res.status(500);
+        res.json(error);
+    });
+});
+
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log(`listening on ${port}`);

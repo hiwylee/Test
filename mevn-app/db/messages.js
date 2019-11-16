@@ -19,16 +19,19 @@ function getAll() {
 }
 
 function create(message) {
-    if(message.username) message.username = 'Anonymous';
 
-    const result = Joi.valid(message, schema);
+    if(message.username == null ) message.username = 'Anonymous';
+
+    const result = Joi.validate(message, schema);
+
     if(result.error == null) {
         message.created = new Date();
-        return username.insert(message);
+        return messages.insert(message);
     }
     else {
-        return Promise.reject(result.error)
+         return Promise.reject(result.error.details);
     }
+
 }
 
 module.exports = {
