@@ -9,6 +9,7 @@
     npm install -g create-react-app
         or
     npm install --global yarn    
+
     yarn global add create-react-app
 
 ### 2). create-react-app 사용(프로젝트 생성)
@@ -52,6 +53,7 @@ yarn global add @vue/cli-init
 npm install -g @vue/cli-service-global
 # or
 yarn global add @vue/cli-service-global
+yarn global add serve
 ```
 * Vue Project 생성
 ```
@@ -191,6 +193,7 @@ new Vue({
 
 ```
 /home/gitpod/.config/yarn/global/node_modules/.bin/vue
+
 ```
 # MEVN (Mongodb-Exprees-Vuejs-nodejs) 
 * [Vue.js Express Tutorial](https://vegibit.com/vue-js-express-tutorial/)
