@@ -114,7 +114,7 @@ $ vue-cli-service serve
 gitpod /workspace/Test $ 
 
 ```
-## * 주의사항 (gitpod 를 사용하여 개발할 경우)
+## * 주의사항 (gitpod 를 사용하여 개발할 경우) - Invalid Host Headers 에러 발생시
 * 프로젝트 홈에서 vue.connfig.js 만들어 다음과 같이 입력
 ```
 module.exports = {
@@ -125,6 +125,7 @@ module.exports = {
 }
 ```
 
+* 아래 자료 출처 [Vue.js 입문자를 위한 공개 세미나 67 page] (https://www.slideshare.net/GihyoJoshuaJang/do-it-vuejs-88453012)
 ## 1. 참고자료
 * [Vue.js 입문자를 위한 공개 세미나](https://www.slideshare.net/GihyoJoshuaJang/do-it-vuejs-88453012)
 * [Vue.JS 2.0 강좌 목록 ](https://velopert.com/vuejs-tutorials)
@@ -135,10 +136,12 @@ module.exports = {
 + [Vue.js공식문서](https://vuejs.org/v2/guide/)
 + [Vue.js Feed](https://vuejsfeed.com/)
 + [Vue.js Developers](https://vuejsdevelopers.com/)
-## 3. 강의목록
+
+## 3. 참고 강의 목록
 + [Vue.js Complete Guide(영어)](https://www.udemy.com/vuejs-2-the-complete-guide/)
 + [누구나 다루기 쉬운 Vie.js(한글)](https://www.inflearn.com/course/vue-pwa-vue-js-%EA%B8%B0%EB%B3%B8/)
 + [실습 UI개발로 매워보는 순수 JS와 VieJS](https://www.inflearn.com/course/%EC%88%9C%EC%88%98js-vuejs-%EA%B0%9C%EB%B0%9C-%EA%B0%95%EC%A2%8C/)
++ [Vuejs에서 라우팅을 사용해 사용자 환경을 더 좋게 만드는 방법 — 1](https://medium.com/@erwinousy/vuejs%EC%97%90%EC%84%9C-%EB%9D%BC%EC%9A%B0%ED%8C%85%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%B4-%EC%82%AC%EC%9A%A9%EC%9E%90-%ED%99%98%EA%B2%BD%EC%9D%84-%EB%8D%94-%EC%A2%8B%EA%B2%8C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95-4e39d89929ea)
 
 ## 4. 프로젝트 및 코드
 + [Awesome Vue 리포지토리](https://github.com/vuejs/awesome-vue)
@@ -183,17 +186,10 @@ new Vue({
 })
 ```
 
-```
-./home/gitpod/.pyenv/versions/2.7.16/lib/python2.7/site-packages/notebook/static/components/codemirror/mode/vue
-./home/gitpod/.pyenv/versions/3.7.4/lib/python3.7/site-packages/notebook/static/components/codemirror/mode/vue
-./workspace/Test/vue-app/node_modules/vue
 
-./home/gitpod/.config/yarn/global/node_modules/.bin/vue
-./home/gitpod/.yarn/bin/vue
-./home/gitpod/.cache/yarn/v6/npm-@vue-cli-4.0.5-20f3159e9c1c1d646bb1086e9387f99351fb6064-integrity/node_modules/@vue/cli/.bin/vue
-./home/gitpod/.cache/yarn/v6/npm-vue-2.6.10-a72b1a42a4d82a721ea438d1b6bf55e66195c637-integrity/node_modules/vue
-./home/gitpod/.pyenv/versions/2.7.16/lib/python2.7/site-packages/notebook/static/components/codemirror/mode/vue
-./home/gitpod/.pyenv/versions/3.7.4/lib/python3.7/site-packages/notebook/static/components/codemirror/mode/vue
-./workspace/Test/vue-app/node_modules/vue
+* gitpod 에서 yarn 으로 vue를 설치한 경우 vue 위치
+
+```
+/home/gitpod/.config/yarn/global/node_modules/.bin/vue
 ```
 
