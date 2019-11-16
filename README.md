@@ -194,4 +194,4 @@ new Vue({
 ```
 # MEVN (Mongodb-Exprees-Vuejs-nodejs) 
 * [Vue.js Express Tutorial](https://vegibit.com/vue-js-express-tutorial/)
-  * [goto app home](./mevn-app/READM.md)
+  * [mevn-app home](./mevn-app/README.md)
