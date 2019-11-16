@@ -47,6 +47,7 @@ $ vue --version
 npm install -g @vue/cli
 # OR
 yarn global add @vue/cli
+yarn global add @vue/cli-init
 
 npm install -g @vue/cli-service-global
 # or
@@ -54,6 +55,7 @@ yarn global add @vue/cli-service-global
 ```
 * Vue Project 생성
 ```
+# /home/gitpod/.config/yarn/global/node_modules/.bin/vue
 vue create vue-app
 
 vue CLI v4.0.5
@@ -142,6 +144,7 @@ module.exports = {
 + [Awesome Vue 리포지토리](https://github.com/vuejs/awesome-vue)
 + [Vue Material](https://github.com/vuematerial/vue-material)
 + [Scotch Vue.js 투토리얼](https://scotch.io/courses/build-an-online-shop-with-vue)
++ [Build VueTube](https://medium.com/techtrument/build-a-video-player-like-youtube-in-vuejs-webpack-and-flexbox-b51ef9bede0b)
 
 
 ## 5. 통계 및 기타
@@ -179,3 +182,18 @@ new Vue({
   }
 })
 ```
+
+```
+./home/gitpod/.pyenv/versions/2.7.16/lib/python2.7/site-packages/notebook/static/components/codemirror/mode/vue
+./home/gitpod/.pyenv/versions/3.7.4/lib/python3.7/site-packages/notebook/static/components/codemirror/mode/vue
+./workspace/Test/vue-app/node_modules/vue
+
+./home/gitpod/.config/yarn/global/node_modules/.bin/vue
+./home/gitpod/.yarn/bin/vue
+./home/gitpod/.cache/yarn/v6/npm-@vue-cli-4.0.5-20f3159e9c1c1d646bb1086e9387f99351fb6064-integrity/node_modules/@vue/cli/.bin/vue
+./home/gitpod/.cache/yarn/v6/npm-vue-2.6.10-a72b1a42a4d82a721ea438d1b6bf55e66195c637-integrity/node_modules/vue
+./home/gitpod/.pyenv/versions/2.7.16/lib/python2.7/site-packages/notebook/static/components/codemirror/mode/vue
+./home/gitpod/.pyenv/versions/3.7.4/lib/python3.7/site-packages/notebook/static/components/codemirror/mode/vue
+./workspace/Test/vue-app/node_modules/vue
+```
+
