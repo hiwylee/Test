@@ -192,4 +192,6 @@ new Vue({
 ```
 /home/gitpod/.config/yarn/global/node_modules/.bin/vue
 ```
-
+# MEVN (Mongodb-Exprees-Vuejs-nodejs) 
+* [Vue.js Express Tutorial](https://vegibit.com/vue-js-express-tutorial/)
+  * [goto app home](./mevn-app/READM.md)
