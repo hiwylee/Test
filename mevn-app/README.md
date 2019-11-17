@@ -350,9 +350,156 @@ POST /messages 500 - - 19.777 ms
 
 ```
 ### 10. Consume API and Display Messages With Vue
-
+* client/src/components/Home.vue 
+  * template part (UI)
+```html
+<template>
+  <div>
+    <hr>
+    <div class="list-unstyled" v-for="message in messages" :key="message._id">
+      <li class="media">
+        <img v-if="message.imageURL" class="mr-3" :src="message.imageURL" :alt="message.subject">
+        <div class="media-body">
+          <h4 class="mt-0 mb-1">{{message.username}}</h4>
+          <h5 class="mt-0 mb-1">{{message.subject}}</h5>
+          {{message.message}}
+          <br />
+          <small>{{message.created}}</small>
+        </div>
+      </li>
+      <hr>
+    </div>
+  </div>
+</template>
+```
+  * script part (Logic)
+```javascript
+<script>
+const API_URL = "http://localhost:4000/messages";
+ 
+export default {
+  name: "home",
+  data: () => ({
+    error: "",
+    messages: []
+  }),
+ 
+  mounted() {
+    fetch(API_URL)
+      .then(response => response.json())
+      .then(result => {
+        this.messages = result;
+      });
+  },
+  methods: {}
+};
+</script>
+```
 ### 11. Add a Vue Form To Submit New Messages
+* client/src/components/Home.vue 
+  * template part (UI)
+```html
+   <form @submit.prevent="addMessage" class="mb-3">
+      <div v-if="error" class="alert alert-dismissible alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Error!</h4>
+        <p class="mb-0">{{error}}</p>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          v-model="message.username"
+          type="text"
+          class="form-control"
+          id="username" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input
+          v-model="message.subject"
+          type="text"
+          class="form-control"
+          id="subject"
+          placeholder="Enter a subject" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          v-model="message.message"
+          class="form-control"
+          id="message"
+          rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="imageURL">Image URL</label>
+        <input
+          v-model="message.imageURL"
+          type="url"
+          class="form-control"
+          id="imageURL"
+          placeholder="Enter URL to an image">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Message</button>
+    </form>
+```    
+  * script part (Logic)
+```javascript
+export default {
+  name: "home",
+  data: () => ({
+    error: "",
+    messages: [],
+    message: {
+      username: "Enter a screen name",
+      subject: "",
+      message: "",
+      imageURL: ""
+    }
+  }),
+  computed: {
+    reversedMessages() {
+      return this.messages.slice().reverse();
+    }
+  },
+  mounted() {
+    fetch(API_URL)
+      .then(response => response.json())
+      .then(result => {
+        this.messages = result;
+      });
+  },
+  methods: {
+    addMessage() {
+      console.log(this.message);
+      fetch(API_URL, {
+        method: "POST",
+        body: JSON.stringify(this.message),
+        headers: {
+          "content-type": "application/json"
+        }
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (result.details) {
+            // there was an error...
+            const error = result.details
+              .map(detail => detail.message)
+              .join(". ");
+            this.error = error;
+          } else {
+            this.error = "";
+            this.showMessageForm = false;
+            this.messages.push(result);
+          }
+        });
+    }
+  }
+};
+</script>
+```
+
 ### 12. Mongo Express Vue.js Node.js Tutorial Summary
+
 # See Next
 
 * [MEVN Stack]( https://www.djamware.com/post/5a1b779f80aca75eadc12d6e/mongo-express-vue-nodejs-mevn-stack-crud-web-application)
@@ -361,3 +508,5 @@ POST /messages 500 - - 19.777 ms
 * {Joi : Input Validation](https://vegibit.com/node-js-express-rest-api-tutorial/)
 * [Promise:  비동기 처리](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)
 * [Vue.js 2.0 라이프사이클 이해하기](https://medium.com/witinweb/vue-js-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-7780cdd97dd4)
+* [[React Native] 인스타그램 UI 만들기 #1](https://velog.io/@anpigon/React-Native-UI-%EB%A7%8C%EB%93%A4%EA%B8%B0-1)
+  * [Github](https://github.com/anpigon/rn_instagram_clone)

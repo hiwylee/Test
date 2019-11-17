@@ -54,7 +54,7 @@
 
     </form>
     <hr/>
-    <div class="list-unstyled" v-for="message in messages" :key="message._id">
+    <div class="list-unstyled" v-for="message in reversedMessages" :key="message._id">
       <li class="media">
         <img v-if="message.imageURL" class="mr-3" :src="message.imageURL" :alt="message.subject">
         <div class="media-body">
@@ -88,7 +88,11 @@ export default {
       imageURL: '',
     },
   }),
-
+  computed: {
+    reversedMessages() {
+      return this.messages.slice().reverse();
+    },
+  },
   mounted() {
     fetch(API_URL)
       .then(response => response.json())
