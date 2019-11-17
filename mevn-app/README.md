@@ -350,6 +350,7 @@ POST /messages 500 - - 19.777 ms
 
 ```
 ### 10. Consume API and Display Messages With Vue
+
 ### 11. Add a Vue Form To Submit New Messages
 ### 12. Mongo Express Vue.js Node.js Tutorial Summary
 # See Next
@@ -359,16 +360,4 @@ POST /messages 500 - - 19.777 ms
 * [Monk : MongoDB Interface](https://www.npmjs.com/package/monk)
 * {Joi : Input Validation](https://vegibit.com/node-js-express-rest-api-tutorial/)
 * [Promise:  비동기 처리](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)
-
-'''html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Error</title>
-</head>
-<body>
-<pre>TypeError: Cannot set property &#39;error&#39; of null<br> &nbsp; &nbsp;at Object.create (/workspace/Test/mevn-app/db/messages.js:26:18)<br> &nbsp; &nbsp;at app.post (/workspace/Test/mevn-app/index.js:34:14)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/workspace/Test/mevn-app/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at next (/workspace/Test/mevn-app/node_modules/express/lib/router/route.js:137:13)<br> &nbsp; &nbsp;at Route.dispatch (/workspace/Test/mevn-app/node_modules/express/lib/router/route.js:112:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/workspace/Test/mevn-app/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at /workspace/Test/mevn-app/node_modules/express/lib/router/index.js:281:22<br> &nbsp; &nbsp;at Function.process_params (/workspace/Test/mevn-app/node_modules/express/lib/router/index.js:335:12)<br> &nbsp; &nbsp;at next (/workspace/Test/mevn-app/node_modules/express/lib/router/index.js:275:10)<br> &nbsp; &nbsp;at /workspace/Test/mevn-app/node_modules/body-parser/lib/read.js:130:5</pre>
-</body>
-</html>
-```
+* [Vue.js 2.0 라이프사이클 이해하기](https://medium.com/witinweb/vue-js-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-7780cdd97dd4)

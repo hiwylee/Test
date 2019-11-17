@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/theia-vue-extension
 /.pnp
 .pnp.js
 

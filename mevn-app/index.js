@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
     });
 });
 
+ 
 app.get('/messages',(req, res) => {
     messages.getAll().then((message) => {    
         res.json(message);
@@ -39,7 +40,7 @@ app.post('/messages',(req, res) => {
     });
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
     console.log(`listening on ${port}`);
 });
